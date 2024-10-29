@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="tabs">
+        <button class="tab-button" onclick="openTab('userProfile')">User Profile</button>
+        <button class="tab-button" onclick="openTab('rooms')">Rooms</button>
+        <button class="tab-button" onclick="openTab('smartDevices')">Smart Devices</button>
+        <button class="tab-button" onclick="openTab('config')">Configuration</button>
+    </div>
+    <div id="userProfile" class="tab-content">
+        <h2>User Profile</h2>
+        <!-- User Profile Form -->
+        <form id="userProfileForm">
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" name="userName" required>
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required>
+            <label for="userRole">Role:</label>
+            <select id="userRole" name="userRole" required>
+                <option value="Administrator">Administrator</option>
+                <option value="Member">Member</option>
+            </select>
+            <button type="submit">Save</button>
+        </form>
+        <!-- User List -->
+        <h3>All Users</h3>
+        <table id="userTable">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="userList"></tbody>
+        </table>
+    </div>
+    <div id="rooms" class="tab-content">
+        <h2>Rooms</h2>
+        <!-- Rooms Form -->
+        <form id="roomsForm">
+            <label for="roomName">Room Name:</label>
+            <input type="text" id="roomName" name="roomName">
+            <button type="submit">Save</button>
+        </form>
+        <!-- Room List -->
+        <h3>All Rooms</h3>
+        <table id="roomTable">
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Number of Device</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="roomList"></tbody>
+        </table>
+    </div>
+    <div id="smartDevices" class="tab-content">
+        <h2>Smart Devices</h2>
+        <!-- Smart Devices Form -->
+        <form id="smartDevicesForm">
+            <label for="deviceName">Device Name:</label>
+            <input type="text" id="deviceName" name="deviceName">
+            <label for="deviceType">Device Type:</label>
+            <select id="deviceType" name="deviceType">
+                <option value="Camera">Camera</option>
+                <option value="Thermostat">Thermostat</option>
+                <option value="Light">Light</option>
+                <option value="Curtain">Curtain</option>
+            </select>
+            <label for="roomSelect">Room:</label>
+            <select id="roomSelect" name="roomSelect" required>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <button type="submit">Save</button>
+        </form>
+        <!-- Smart Device List -->
+        <h3>All Devices</h3>
+        <table id="smartDeviceTable">
+            <thead>
+            <tr>
+                <th>Smart Device Name</th>
+                <th>Smart Device Type</th>
+                <th>Room</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="deviceList"></tbody>
+        </table>
+    </div>
+    <div id="config" class="tab-content">
+        <h2>Room & Devices Configuration</h2>
+        <!-- Floor Plan Drag and Drop -->
+        <h3>Floor Plan</h3>
+        <div id="dynamicFloorPlan" class="floor-plan"></div>
+        <div id="deviceConfigContainer" class="device-config-container"></div>
+    </div>
+</div>
+
+<script src="userProfileScripts.js"></script>
+<script src="roomScripts.js"></script>
+<script src="deviceScripts.js"></script>
+<script src="floorPlan.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
+
